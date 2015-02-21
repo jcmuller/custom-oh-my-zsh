@@ -1,0 +1,17 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+__cpchecksolr	cptools.zsh	/^__cpchecksolr() {$/;"	f
+__cpcheckunicorn	cptools.zsh	/^__cpcheckunicorn() {$/;"	f
+__cpprocess	cptools.zsh	/^__cpprocess() {$/;"	f
+__it_is_down	cptools.zsh	/^__it_is_down() {$/;"	f
+__it_is_up	cptools.zsh	/^__it_is_up() {$/;"	f
+_rbenv	rbenv.zsh	/^_rbenv() {$/;"	f
+cpcheckstatus	cptools.zsh	/^cpcheckstatus() {$/;"	f
+cprestart	cptools.zsh	/^cprestart() {$/;"	f
+cprunning	cptools.zsh	/^cprunning () {$/;"	f
+cpstop	cptools.zsh	/^cpstop () {$/;"	f
+git_prompt_info_with_sha	git_prompt_info_with_sha.zsh	/^git_prompt_info_with_sha () {$/;"	f
