@@ -16,10 +16,38 @@ function rbenv_prompt_info() {
   fi
 }
 
+function rbenv_last_exit_code() {
+  local LAST_EXIT_CODE=$?
+
+  if [[ $LAST_EXIT_CODE -ne 0 ]]; then
+    local EXIT_CODE_PROMPT=' '
+    EXIT_CODE_PROMPT+="%{$fg[red]%}-%{$reset_color%}"
+    EXIT_CODE_PROMPT+="%{$fg_bold[red]%}$LAST_EXIT_CODE%{$reset_color%}"
+    EXIT_CODE_PROMPT+="%{$fg[red]%}-%{$reset_color%}"
+    echo "$EXIT_CODE_PROMPT"
+  fi
+}
+
+function preexec() {
+  timer=${timer:-$SECONDS}
+}
+
+function precmd() {
+  if [[ $timer ]]; then
+    timer_show=$(($SECONDS - $timer))
+    TIMINGS="${timer_show}s"
+    unset timer
+  fi
+}
+
+function execution_time() {
+  echo $TIMINGS
+}
+
 [[ $UID -eq 0 ]] && NCOLOR="red" || NCOLOR="white"
 
 PROMPT='%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[blue]%}%B%c%b%{$reset_color%} $(git_prompt_info_with_sha)%(!.#.$) '
-RPROMPT='%{$fg[blue]%}%B(%{$fg[yellow]%}%B$(rbenv_prompt_info)%{$fg[blue]%})%{$reset_color%} [%*]'
+RPROMPT='$(rbenv_last_exit_code)%{$fg[blue]%}%B(%{$fg[yellow]%}%B$(rbenv_prompt_info)%{$fg[blue]%})%{$reset_color%} [%*][%j][$(execution_time)]'
 
 # git theming
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg_no_bold[yellow]%}%B"
