@@ -4,6 +4,10 @@ function current_ruby() {
   echo "$(rbenv version-name)"
 }
 
+function npm_prompt_info() {
+  echo "$(nvm version)"
+}
+
 function current_gemset() {
   echo "$(rbenv gemset active 2&>/dev/null | sed -e ":a" -e '$ s/\n/+/gp' | head -n1)"
 }
@@ -47,7 +51,7 @@ function execution_time() {
 [[ $UID -eq 0 ]] && NCOLOR="red" || NCOLOR="white"
 
 PROMPT='%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[blue]%}%B%c%b%{$reset_color%} $(git_prompt_info_with_sha)%(!.#.$) '
-RPROMPT='$(rbenv_last_exit_code)%{$fg[blue]%}%B(%{$fg[yellow]%}%B$(rbenv_prompt_info)%{$fg[blue]%})%{$reset_color%} [%*][%j][$(execution_time)]'
+RPROMPT='$(rbenv_last_exit_code)%{$fg[blue]%}%B(%{$fg[yellow]%}%BR:$(rbenv_prompt_info)|N:$(npm_prompt_info)%{$fg[blue]%})%{$reset_color%} [%*][%j][$(execution_time)]'
 
 # git theming
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg_no_bold[yellow]%}%B"
