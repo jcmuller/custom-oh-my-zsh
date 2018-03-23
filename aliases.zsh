@@ -43,3 +43,16 @@ alias zs="z rspec"
 alias codeclimate="docker run --interactive --tty --rm --env CODE_PATH="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate"
 
 unalias grb
+
+dajoku_login() {
+  local dajokus user space region
+
+  dajokus=(dev.use1 prod.use1 prod.usw2)
+  user=juan@greenhouse.io
+
+  for dj in $dajokus; do
+    read -r space region <<<$(echo "$dj" | sed 's/\./ /')
+
+    /home/jcmuller/bin/dajoku auth login -s "$space" -r "$region" "$user"
+  done
+}
