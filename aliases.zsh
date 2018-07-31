@@ -41,6 +41,10 @@ alias zr="z rake"
 alias zs="z rspec"
 
 alias codeclimate="docker run --interactive --tty --rm --env CODE_PATH="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate"
+alias autometrics='docker run -it --rm --network=host registry.int.greenhouse.io/autometrics-cli'
+alias solano='docker run -it --rm -v $PWD:/src registry.int.greenhouse.io/solano-cli'
+alias dockviz='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz'
+alias docker_tree='dockviz images --tree'
 
 unalias grb
 
