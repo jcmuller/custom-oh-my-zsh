@@ -53,7 +53,11 @@ alias createdb='pg_base_9.6 createdb'
 alias pg_restore='pg_base_9.6 pg_restore'
 alias dropdb='pg_base_9.6 dropdb'
 alias psql='pg_base_9.6 psql'
+alias pg_dump='pg_base_9.6 pg_dump'
 alias pgsh='pg_base_9.6 sh'
+
+alias grep='\grep --color=auto'
+alias zgrep='\zgrep --color=auto'
 
 [[ -z `alias grb` ]] || unalias grb
 
