@@ -2,3 +2,4 @@
 
 export PATH=~/bin:$PATH
 export EDITOR=vim
+export DAJOKU_USER=jcmuller
