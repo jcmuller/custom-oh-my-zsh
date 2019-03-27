@@ -41,8 +41,8 @@ alias zr="z rake"
 alias zs="z rspec"
 
 alias codeclimate="docker run --interactive --tty --rm --env CODE_PATH="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate"
-alias autometrics='docker run -it --rm --network=host registry.int.greenhouse.io/autometrics-cli'
-alias solano='docker run -it --rm -v $PWD:/src registry.int.greenhouse.io/solano-cli'
+alias autometrics='docker run -it --rm --network=host gcr.io/gh-infra/autometrics-cli'
+alias solano='docker run -it --rm -v $PWD:/src gcr.io/gh-infra/solano-cli:latest'
 alias dockviz='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz'
 alias docker_tree='dockviz images --tree'
 dajoku_dev='BUNDLE_GEMFILE=/home/jcmuller/Development/Greenhouse/dajoku_cli/Gemfile bundle exec ruby -I /home/jcmuller/Development/Greenhouse/dajoku_cli/lib /home/jcmuller/Development/Greenhouse/dajoku_cli/bin/dajoku'
