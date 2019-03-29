@@ -1,8 +1,8 @@
 GOENV_ROOT="$HOME/.goenv"; export GOENV_ROOT
 GOPATH=~/go; export GOPATH
 
-[ -s "$GOENV_ROOT/completions/goenv.zsh" ] && . "$GOENV_ROOT/completions/goenv.zsh"
 eval "$($GOENV_ROOT/bin/goenv init -)"
+[ -s "$GOENV_ROOT/completions/goenv.zsh" ] && . "$GOENV_ROOT/completions/goenv.zsh"
 
 GOROOT="$(goenv prefix)"; export GOROOT
 
