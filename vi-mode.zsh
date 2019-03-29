@@ -23,4 +23,5 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
+# escape key timeout
 export KEYTIMEOUT=1

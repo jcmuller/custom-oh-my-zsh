@@ -1,0 +1,7 @@
+alias pg_base_9.6='bundle exec docker run -it --network=host --rm -e PGHOST -e PGUSER -e PGPASSWORD -v /tmp:/tmp:ro postgres:9.6-alpine'
+alias createdb='pg_base_9.6 createdb'
+alias pg_restore='pg_base_9.6 pg_restore'
+alias dropdb='pg_base_9.6 dropdb'
+alias psql='pg_base_9.6 psql'
+alias pg_dump='pg_base_9.6 pg_dump'
+alias pgsh='pg_base_9.6 sh'
