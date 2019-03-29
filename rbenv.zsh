@@ -19,11 +19,3 @@ _rbenv() {
 
   reply=("${(ps:\n:)completions}")
 }
-
-PATH_COMPONENTS=(
-"$HOME/.rbenv/bin"
-"$HOME/.rbenv/shims"
-)
-
-PATH="${(j/:/)PATH_COMPONENTS}:${PATH}"
-export PATH
