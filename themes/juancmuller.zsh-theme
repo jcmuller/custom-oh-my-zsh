@@ -54,8 +54,8 @@ function execution_time() {
 
 [[ $UID -eq 0 ]] && NCOLOR="red" || NCOLOR="white"
 
-PROMPT='%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[blue]%}%B%c%b%{$reset_color%} $(git_prompt_info_with_sha)$prompt_newline%(!.#.$) '
-RPROMPT='$(rbenv_last_exit_code)%{$fg[blue]%}%B(%{$fg[yellow]%}%B$(versions)%{$fg[blue]%})%{$reset_color%} [%*][%j][$(execution_time)]'
+PROMPT='%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[blue]%}%B%5c%b%{$reset_color%} $(git_prompt_info_with_sha)$(rbenv_last_exit_code)%{$fg[blue]%}%B(%{$fg[yellow]%}%B$(versions)%{$fg[blue]%})%{$reset_color%} [%*][%j][$(execution_time)]
+%(!.#.$) '
 
 # git theming
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg_no_bold[yellow]%}%B"

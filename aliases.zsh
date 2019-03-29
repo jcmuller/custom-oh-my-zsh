@@ -44,7 +44,6 @@ alias codeclimate="docker run --interactive --tty --rm --env CODE_PATH="$PWD" --
 alias autometrics='docker run -it --rm --network=host gcr.io/gh-infra/autometrics-cli'
 alias solano='docker run -it --rm -v $PWD:/src gcr.io/gh-infra/solano-cli:latest'
 alias dockviz='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz'
-alias docker_tree='dockviz images --tree'
 dajoku_dev='BUNDLE_GEMFILE=/home/jcmuller/Development/Greenhouse/dajoku_cli/Gemfile bundle exec ruby -I /home/jcmuller/Development/Greenhouse/dajoku_cli/lib /home/jcmuller/Development/Greenhouse/dajoku_cli/bin/dajoku'
 
 # Postgresl
@@ -58,6 +57,13 @@ alias pgsh='pg_base_9.6 sh'
 
 alias grep='\grep --color=auto'
 alias zgrep='\zgrep --color=auto'
+
+alias docker_tree='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images --tree'
+alias fly="docker run --net=host -it --rm -v /etc/ssl/certs:/etc/ssl/certs:ro -v $HOME/.config/fly:/home -v $(pwd):/workspace -e HOME=/home registry.int.greenhouse.io/concourse:fly "
+alias aws-vault-pass='aws-vault --backend=pass --pass-cmd=pass --pass-prefix=aws-vault'
+alias aws-vault-secret-service='aws-vault --backend=secret-service'
+alias docker-dajoku='docker run -v $PWD:/app -v $HOME/.ssh/id_rsa:/root/.ssh/id_rsa -v /home/jcmuller/.config/docker-dajoku:/root/.config/dajoku --network=host -it --rm dajoku_cli'
+alias hass-cli='summon -p gopass --yaml "HASS_TOKEN: !var hass/cli-token" docker run -it --network=host --rm -e HASS_SERVER=http://hassio.local:8123 -e HASS_TOKEN jcmuller/hass-cli-docker:latest'
 
 [[ -z `alias grb` ]] || unalias grb
 

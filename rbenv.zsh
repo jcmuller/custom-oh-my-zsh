@@ -2,6 +2,8 @@ if [[ ! -o interactive ]]; then
     return
 fi
 
+eval "$(rbenv init -)"
+
 compctl -K _rbenv rbenv
 
 _rbenv() {
@@ -18,5 +20,10 @@ _rbenv() {
   reply=("${(ps:\n:)completions}")
 }
 
+PATH_COMPONENTS=(
+"$HOME/.rbenv/bin"
+"$HOME/.rbenv/shims"
+)
 
-export PATH=$HOME/.rbenv/shims:$PATH
+PATH="${(j/:/)PATH_COMPONENTS}:${PATH}"
+export PATH
