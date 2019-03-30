@@ -17,6 +17,7 @@ GOROOT="$(goenv prefix)"; export GOROOT
 
 PATH_COMPONENTS=(
 "$GOROOT/bin"
+"$GOPATH/$(goenv version-name)/bin"
 )
 
 PATH="${(j/:/)PATH_COMPONENTS}:${PATH}"
