@@ -2,6 +2,8 @@ set -o vi
 
 bindkey -M viins '\e.' insert-last-word
 bindkey "^?" backward-delete-char
+bindkey "^X^E" edit-command-line
+bindkey "^U" kill-whole-line
 
 #################################
 bindkey -v
