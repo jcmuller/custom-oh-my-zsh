@@ -50,6 +50,6 @@ alias zgrep='\zgrep --color=auto'
 
 alias docker_tree='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images --tree'
 alias fly="docker run --net=host -it --rm -v /etc/ssl/certs:/etc/ssl/certs:ro -v $HOME/.config/fly:/home -v $(pwd):/workspace -e HOME=/home registry.int.greenhouse.io/concourse:fly "
-alias hass-cli='summon -p gopass --yaml "HASS_TOKEN: !var hass/cli-token" docker run -it --network=host --rm -e HASS_SERVER=http://hassio.local:8123 -e HASS_TOKEN jcmuller/hass-cli-docker:latest'
+alias hass-cli='summon -f ~/.config/hass-cli/secrets.yml docker run -it --network=host --rm --env-file @SUMMONENVFILE jcmuller/hass-cli-docker:latest'
 
 [[ -z `alias grb` ]] || unalias grb
