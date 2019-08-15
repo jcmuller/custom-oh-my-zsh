@@ -53,3 +53,6 @@ alias fly="docker run --net=host -it --rm -v /etc/ssl/certs:/etc/ssl/certs:ro -v
 alias hass-cli='summon -f ~/.config/hass-cli/secrets.yml docker run -it --network=host --rm --env-file @SUMMONENVFILE jcmuller/hass-cli-docker:latest'
 
 [[ -z `alias grb` ]] || unalias grb
+
+alias timeit='time $(fc -ln -1)'
+alias please='sudo $(fc -ln -1)'
