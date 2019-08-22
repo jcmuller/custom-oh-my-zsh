@@ -1,7 +1,11 @@
 # Modified clean theme
 
 function versions() {
-  echo "$(version_manager_shell_string)"
+  mgr="$(version_manager_shell_string)"
+  aws="A:${AWS_VAULT}"
+  kubectl="K:$(kubectl config current-context)"
+
+  echo "$mgr|$aws|$kubectl"
 }
 
 function current_ruby() {
@@ -13,11 +17,11 @@ function npm_prompt_info() {
 }
 
 function current_gemset() {
-  echo "$(rbenv gemset active 2&>/dev/null | sed -e ":a" -e '$ s/\n/+/gp' | head -n1)"
+  echo "$(rbenv gemset active 2 &>/dev/null | sed -e ":a" -e '$ s/\n/+/gp' | head -n1)"
 }
 
 function rbenv_prompt_info() {
-  if [[ -n $(current_gemset) ]] ; then
+  if [[ -n $(current_gemset) ]]; then
     echo "$(current_ruby)@$(current_gemset)"
   else
     echo "$(current_ruby)"
@@ -54,7 +58,7 @@ function execution_time() {
 
 [[ $UID -eq 0 ]] && NCOLOR="red" || NCOLOR="white"
 
-PROMPT='%{$fg[$NCOLOR]%}%B%n@%M%b%{$reset_color%}:%{$fg[blue]%}%B%5c%b%{$reset_color%} $(git_prompt_info_with_sha)$(rbenv_last_exit_code)%{$fg[blue]%}%B(%{$fg[yellow]%}%B$(versions)%{$fg[blue]%})%{$reset_color%} AWS:%{$fg[yellow]%}${AWS_VAULT}%{$reset_color%} K:%{$fg[yellow]%}$(kubectl config current-context)%{$reset_color%} [%*][%j][$(execution_time)]
+PROMPT='%{$fg[$NCOLOR]%}%B%n@%M%b%{$reset_color%}:%{$fg[blue]%}%B%5c%b%{$reset_color%} $(git_prompt_info_with_sha)$(rbenv_last_exit_code)%{$fg[blue]%}%B(%{$fg[yellow]%}%B$(versions)%{$fg[blue]%})%{$reset_color%} [%*][%j][$(execution_time)]
 %(!.#.$) '
 
 # git theming
