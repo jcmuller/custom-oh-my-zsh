@@ -54,7 +54,7 @@ function execution_time() {
 
 [[ $UID -eq 0 ]] && NCOLOR="red" || NCOLOR="white"
 
-PROMPT='%{$fg[$NCOLOR]%}%B%n@%M%b%{$reset_color%}:%{$fg[blue]%}%B%5c%b%{$reset_color%} $(git_prompt_info_with_sha)$(rbenv_last_exit_code)%{$fg[blue]%}%B(%{$fg[yellow]%}%B$(versions)%{$fg[blue]%})%{$reset_color%} [%*][%j][$(execution_time)]
+PROMPT='%{$fg[$NCOLOR]%}%B%n@%M%b%{$reset_color%}:%{$fg[blue]%}%B%5c%b%{$reset_color%} $(git_prompt_info_with_sha)$(rbenv_last_exit_code)%{$fg[blue]%}%B(%{$fg[yellow]%}%B$(versions)%{$fg[blue]%})%{$reset_color%} AWS:%{$fg[yellow]%}${AWS_VAULT}%{$reset_color%} K:%{$fg[yellow]%}$(kubectl config current-context)%{$reset_color%} [%*][%j][$(execution_time)]
 %(!.#.$) '
 
 # git theming
