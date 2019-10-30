@@ -12,9 +12,11 @@ aws-vault-use() {
     awk '/^AWS/ { print "export " $1 }')
 }
 
-alias aws-vault-pass='aws-vault --backend=pass --pass-cmd=pass --pass-prefix=aws-vault'
-alias aves='aws-vault exec --mfa-token=$(pass otp amazon.com/aws/juan@greenhouse.io) support -- '
+alias av=aws-vault
+alias aws-vault-pass='av --backend=pass --pass-cmd=pass --pass-prefix=aws-vault'
+alias aves='av exec --mfa-token=$(pass otp amazon.com/aws/juan@greenhouse.io) support -- '
 alias avesbe='aves bundle exec'
 alias avesber='avesbe rspec'
 alias avesxber='aves xvfb-run bundle exec rspec'
-alias avus="aws-vault-use support"
+alias avu=aws-vault-use
+alias avus="avu support"
