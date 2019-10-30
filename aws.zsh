@@ -3,12 +3,19 @@ AWS_VAULT_PASS_PREFIX=aws-vault; export AWS_VAULT_PASS_PREFIX
 AWS_VAULT_PASS_CMD=pass; export AWS_VAULT_CMD
 
 aws-vault-use() {
+  local role ttl
+
+  role="${1:-support}"
+  assume_role_ttl="${2:-1h}"
+  session_ttl="${3:-12h}"
+
   unset AWS_VAULT
+
   eval $(aws-vault exec \
     --mfa-token=$(pass otp amazon.com/aws/juan@greenhouse.io) \
-    --assume-role-ttl=1h \
-    --session-ttl=12h \
-    "$@" -- env |
+    "--assume-role-ttl=$assume_role_ttl" \
+    "--session-ttl=$session_ttl" \
+    "$role" -- env |
     awk '/^AWS/ { print "export " $1 }')
 }
 
