@@ -1,4 +1,7 @@
-export PATH="$HOME/.nodenv/bin:$PATH"
+path=(
+  "$HOME/.nodenv/bin"
+  "${path[@]}"
+)
 
 eval "$(nodenv init -)"
 
