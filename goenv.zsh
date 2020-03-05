@@ -1,9 +1,9 @@
-GOPATH=~/go; export GOPATH
+#GOPATH=~/go; export GOPATH
 
-path=(
-  "$GOPATH/bin"
-  "${path[@]}"
-)
+#path=(
+#  "$GOPATH/bin"
+#  "${path[@]}"
+#)
 
 GOROOT="$HOME/go"; export GOROOT
 
