@@ -13,8 +13,14 @@ path=(
 
 GOROOT="$(goenv prefix)"; export GOROOT
 
+for bin in $(find "$HOME/go" -maxdepth 2 -type d -name bin); do
 path=(
-  "$GOROOT/bin"
+  "$bin"
+  "${path[@]}"
+)
+done
+
+path=(
   "$GOPATH/$(goenv version-name)/bin"
   "${path[@]}"
 )
