@@ -1,4 +1,4 @@
-source <(command argo completion zsh)
-source <(helm completion zsh)
-source <(kubectl completion zsh)
-source <(minikube completion zsh)
+. <(command argo completion zsh)
+. <(helm completion zsh)
+. <(kubectl completion zsh)
+. <(minikube completion zsh)
