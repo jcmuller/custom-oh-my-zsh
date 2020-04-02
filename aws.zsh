@@ -6,15 +6,13 @@ aws-vault-use() {
   local role ttl
 
   role="${1:-support}"
-  assume_role_ttl="${2:-1h}"
-  session_ttl="${3:-12h}"
+  duration="${2:-1h}"
 
   unset AWS_VAULT
 
   eval $(aws-vault exec \
-    --mfa-token=$(pass otp amazon.com/aws/juan@greenhouse.io) \
-    "--assume-role-ttl=$assume_role_ttl" \
-    "--session-ttl=$session_ttl" \
+    "--mfa-token=$(pass otp amazon.com/aws/juan@greenhouse.io)" \
+    "--duration=$duration" \
     "$role" -- env |
     awk '/^AWS/ { print "export " $1 }')
 }
