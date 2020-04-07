@@ -11,7 +11,7 @@ aws-vault-use() {
   unset AWS_VAULT
 
   eval $(aws-vault exec \
-    "--mfa-token=$(pass otp amazon.com/aws/juan@greenhouse.io)" \
+    "--mfa-token=$(gopass otp -o amazon.com/aws/juan@greenhouse.io)" \
     "--duration=$duration" \
     "$role" -- env |
     awk '/^AWS/ { print "export " $1 }')
