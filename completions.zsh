@@ -1,3 +1,4 @@
-. <(helm completion zsh)
-. <(kubectl completion zsh)
-. <(minikube completion zsh)
+eval "$(helm completion zsh)"
+eval "$(kubectl completion zsh)"
+eval "$(minikube completion zsh)"
+eval "$(pipelinectl completion zsh)"
