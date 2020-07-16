@@ -9,5 +9,12 @@ alias at='a terminate $(alrnhno | fzf)'
 alias al='a logs -fw `alrnhno | fzf`'
 
 kdebug () {
-    kubectl run -it --rm --labels "consumer=juan,kdebug=true" --image gcr.io/gh-infra/debug-tools "debug-juan" "$@"
+    kubectl run \
+      --generator=run-pod/v1 \
+      -it \
+      --rm \
+      --labels "consumer=juan,kdebug=true" \
+      --image gcr.io/gh-infra/debug-tools \
+      "debug-juan" \
+      "$@"
 }
