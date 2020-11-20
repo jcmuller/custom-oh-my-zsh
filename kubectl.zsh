@@ -1,12 +1,7 @@
 alias k=kubectl
 alias m=minikube
-alias tf=terraform
 alias a="argo -n argo"
-alias alr="a list --running"
-alias alrnh="alr --no-headers"
-alias alrnhno="alrnh -o name"
-alias at='a terminate $(alrnhno | fzf)'
-alias al='a logs -fw `alrnhno | fzf`'
+alias an="argo -n argo-next"
 
 kdebug () {
     kubectl run \

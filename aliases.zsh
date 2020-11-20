@@ -28,5 +28,4 @@ alias hass-cli='summon -f ~/.config/hass-cli/secrets.yml docker run -it --name h
 alias timeit='time $(fc -ln -1)'
 alias please='sudo $(fc -ln -1)'
 
-alias tfi='terraform init -backend-config state.conf -upgrade'
 alias tfp='terraform plan'
