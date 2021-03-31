@@ -12,8 +12,6 @@ alias gco='git checkout'
 alias gcm='gco master'
 
 alias codeclimate="docker run --interactive --tty --rm --env CODE_PATH="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate"
-alias autometrics='docker run -it --rm --network=host gcr.io/gh-infra/autometrics-cli'
-alias solano='docker run -it --rm -v $PWD:/src gcr.io/gh-infra/solano-cli:latest'
 alias dockviz='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz'
 
 alias grep='\grep --color=auto'
@@ -27,5 +25,3 @@ alias hass-cli='summon -f ~/.config/hass-cli/secrets.yml docker run -it --name h
 
 alias timeit='time $(fc -ln -1)'
 alias please='sudo $(fc -ln -1)'
-
-alias tfp='terraform plan'
